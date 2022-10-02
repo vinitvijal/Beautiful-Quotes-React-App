@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Try This Quotes App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-> https://quotesvinu.web.app/
+
+
+
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 
