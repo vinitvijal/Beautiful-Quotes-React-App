@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [Quote, setQuote] = useState({auth:'',message:''});
+
+  useEffect(() => {
+    quotesBag()
+    console.log('Onload')
+  }, []);
+
+
+    const quotesBag = async () => {
+        const res = await fetch('https://api.quotable.io/random')
+        const data =  await res.json()
+        console.log(data)
+        setQuote({auth:data.author,message:data.content})
+
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <>   
+    <header>Quotes - Code Vinu</header>
+      <div className="App">
+        <div className="backg"></div>
+        <h1>{Quote.message} ~ {Quote.auth}</h1>
+      </div>
+    </>
+
+      
+      
   );
 }
 
